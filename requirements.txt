@@ -1,0 +1,24 @@
+# Vehicle Detection Dashboard - Dependencies
+# CPU-only PyTorch + YOLO-NAS from SuperGradients
+
+# Core Framework
+streamlit>=1.28.0,<2.0.0
+
+# Video Processing
+opencv-python>=4.8.0
+
+# Deep Learning - CPU Only (use pre-built wheels)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.0.0,<2.5.0
+torchvision>=0.15.0,<0.20.0
+
+# YOLO-NAS Model (pin to stable version)
+super-gradients>=3.3.0,<3.8.0
+
+# Charts & Visualization
+plotly>=5.18.0
+
+# Utilities (pin pandas to avoid build issues)
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<2.3.0
+Pillow>=10.0.0

@@ -1,0 +1,123 @@
+{
+    "cameras": [
+        {
+            "id": "cp_arcamanik",
+            "name": "CP ARCAMANIK",
+            "rtsp_url": "rtsp://admin:admin123@36.94.129.211:554/id=1",
+            "location": "Arcamanik",
+            "type": "RTSP"
+        },
+        {
+            "id": "cp_cibiru_2",
+            "name": "CP CIBIRU 2",
+            "rtsp_url": "rtsp://admin:admin123@36.66.131.115:554/id=1",
+            "location": "Cibiru 2",
+            "type": "RTSP"
+        },
+        {
+            "id": "cp_kordon",
+            "name": "CP KORDON",
+            "rtsp_url": "rtsp://admin:admin123@36.66.131.171:554/id=1",
+            "location": "Kordon",
+            "type": "RTSP"
+        },
+        {
+            "id": "cp_merdeka",
+            "name": "CP MERDEKA",
+            "rtsp_url": "rtsp://admin:admin123@36.66.131.59:554/id=1",
+            "location": "Merdeka",
+            "type": "RTSP"
+        },
+        {
+            "id": "cp_mohthoha",
+            "name": "CP MOH THOHA",
+            "rtsp_url": "rtsp://admin:admin123@36.95.187.235:554/id=1",
+            "location": "Moh Thoha",
+            "type": "RTSP"
+        },
+        {
+            "id": "cp_rajawali",
+            "name": "CP RAJAWALI",
+            "rtsp_url": "rtsp://admin:admin123@36.93.191.75:554/id=1",
+            "location": "Rajawali",
+            "type": "RTSP"
+        },
+        {
+            "id": "cp_setiabudi",
+            "name": "CP SETIABUDI",
+            "rtsp_url": "rtsp://admin:admin123@36.93.172.187:554/id=1",
+            "location": "Setiabudi",
+            "type": "RTSP"
+        },
+        {
+            "id": "depan_bank_bjb",
+            "name": "DEPAN BANK BJB",
+            "rtsp_url": "rtsp://admin:admin123@36.66.134.171:554/id=1",
+            "location": "Depan Bank BJB",
+            "type": "RTSP"
+        },
+        {
+            "id": "depan_castello",
+            "name": "DEPAN CASTELLO",
+            "rtsp_url": "rtsp://admin:admin123@36.92.37.59:554/id=1",
+            "location": "Depan Castello",
+            "type": "RTSP"
+        },
+        {
+            "id": "depan_koni",
+            "name": "DEPAN KONI",
+            "rtsp_url": "rtsp://admin:admin123@36.64.73.59:554/id=1",
+            "location": "Depan Koni",
+            "type": "RTSP"
+        },
+        {
+            "id": "depan_plang_bni",
+            "name": "DEPAN PLANG BNI",
+            "rtsp_url": "rtsp://admin:admin123@36.89.232.98:554/id=1",
+            "location": "Depan Plang BNI",
+            "type": "RTSP"
+        },
+        {
+            "id": "depan_warung_kopi",
+            "name": "DEPAN WARUNG KOPI PEMUDA",
+            "rtsp_url": "rtsp://admin:admin123@36.67.218.155:554/id=1",
+            "location": "Depan Warung Kopi Pemuda",
+            "type": "RTSP"
+        },
+        {
+            "id": "gading_soreang",
+            "name": "GADING SOREANG",
+            "rtsp_url": "rtsp://admin:admin123@36.93.146.35:554/id=1",
+            "location": "Gading Soreang",
+            "type": "RTSP"
+        },
+        {
+            "id": "pos_dishub",
+            "name": "POS DISHUB",
+            "rtsp_url": "rtsp://admin:admin123@36.91.116.171:554/id=1",
+            "location": "Pos Dishub",
+            "type": "RTSP"
+        },
+        {
+            "id": "pos_lantas_lembang",
+            "name": "POS LANTAS LEMBANG",
+            "rtsp_url": "rtsp://admin:admin123@36.94.203.99:554/id=1",
+            "location": "Pos Lantas Lembang",
+            "type": "RTSP"
+        },
+        {
+            "id": "pos_polisi_sudirman",
+            "name": "POS POLISI JENDRAL SUDIRMAN",
+            "rtsp_url": "rtsp://admin:admin123@36.91.134.11:554/id=1",
+            "location": "Pos Polisi Jendral Sudirman",
+            "type": "RTSP"
+        },
+        {
+            "id": "tol_parung_kuda",
+            "name": "TOL PARUNG KUDA",
+            "rtsp_url": "rtsp://admin:admin123@36.64.73.27:554/id=1",
+            "location": "TOL Parung Kuda",
+            "type": "RTSP"
+        }
+    ]
+}
