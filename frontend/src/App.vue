@@ -36,6 +36,10 @@
           :status-msg="videoStatus"
           :status-class="detection.statusType.value"
           :is-live="detection.isRunning.value"
+          :client-fps="detection.clientFps.value"
+          :server-fps="detection.serverFps.value"
+          :latency-ms="detection.latencyMs.value"
+          :infer-ms="detection.inferMs.value"
         />
 
         <PieChart :counts="detection.counts" />
