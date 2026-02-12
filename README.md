@@ -2,7 +2,8 @@
 
 A modern, real-time vehicle detection and tracking dashboard using **YOLOv10**, **FastAPI**, and **Vue.js 3**.
 
-![Dashboard Preview](https://via.placeholder.com/800x400?text=Vehicle+Detection+Dashboard+2.0)
+<img width="1722" height="1408" alt="image" src="https://github.com/user-attachments/assets/2b8fc225-e22a-4370-b8fe-f42aa6b1e98f" />
+
 
 ## 🚀 Features
 
