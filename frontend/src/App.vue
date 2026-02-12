@@ -25,9 +25,7 @@
         <StatCard icon="🚌" label="Buses" :value="detection.counts.bus" type="bus" />
         <StatCard icon="🚚" label="Trucks" :value="detection.counts.truck" type="truck" />
         <StatCard icon="📈" label="Total" :value="totalDetected" type="total" />
-        <StatCard icon="📊" label="Frames" :value="detection.frameCount.value" type="fps" />
         <StatCard icon="⚡" label="Avg Speed" :value="detection.trackingStats.value.avg_speed" suffix=" km/h" type="speed" />
-        <StatCard icon="🎯" label="Active" :value="detection.trackingStats.value.active_tracks" type="active" />
       </div>
 
       <!-- Video + Chart Grid -->

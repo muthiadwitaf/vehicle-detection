@@ -18,7 +18,6 @@ export function useDetection() {
     const statusType = ref('info') // 'info' | 'success' | 'error' | 'warning'
 
     const counts = reactive({
-        bicycle: 0,
         car: 0,
         motorcycle: 0,
         bus: 0,
@@ -316,7 +315,6 @@ export function useDetection() {
     }
 
     function resetStats() {
-        counts.bicycle = 0
         counts.car = 0
         counts.motorcycle = 0
         counts.bus = 0

@@ -7,7 +7,6 @@ import torch
 
 # COCO class IDs for vehicles
 VEHICLE_CLASSES = {
-    1: "bicycle",
     2: "car",
     3: "motorcycle",
     5: "bus",
@@ -15,7 +14,6 @@ VEHICLE_CLASSES = {
 }
 
 VEHICLE_COLORS = {
-    "bicycle": (255, 255, 0),
     "car": (0, 255, 0),
     "motorcycle": (0, 165, 255),
     "bus": (255, 0, 0),

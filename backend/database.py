@@ -61,8 +61,6 @@ def init_db():
                 id SERIAL PRIMARY KEY,
                 camera_id VARCHAR(100) NOT NULL UNIQUE,
                 camera_name VARCHAR(200),
-                person_count INTEGER DEFAULT 0,
-                bicycle_count INTEGER DEFAULT 0,
                 car_count INTEGER DEFAULT 0,
                 motorcycle_count INTEGER DEFAULT 0,
                 bus_count INTEGER DEFAULT 0,
@@ -72,20 +70,7 @@ def init_db():
             );
         """)
         
-        # Migration: Add bicycle_count if it doesn't exist
-        cursor.execute("""
-            DO $$ 
-            BEGIN 
-                IF NOT EXISTS (SELECT 1 FROM information_schema.columns 
-                               WHERE table_name='detection_counts' AND column_name='person_count') THEN
-                    ALTER TABLE detection_counts ADD COLUMN person_count INTEGER DEFAULT 0;
-                END IF;
-                IF NOT EXISTS (SELECT 1 FROM information_schema.columns 
-                               WHERE table_name='detection_counts' AND column_name='bicycle_count') THEN
-                    ALTER TABLE detection_counts ADD COLUMN bicycle_count INTEGER DEFAULT 0;
-                END IF;
-            END $$;
-        """)
+        # Migration (removed bicycle_count as it is now being dropped)
         
         # Create index on camera_id for faster lookups
         cursor.execute("""
@@ -125,13 +110,12 @@ def save_counts(camera_id: str, camera_name: str, counts: Dict[str, int]) -> boo
         # Upsert (INSERT ... ON CONFLICT UPDATE)
         cursor.execute("""
             INSERT INTO detection_counts 
-                (camera_id, camera_name, bicycle_count, car_count, motorcycle_count, bus_count, truck_count, last_updated)
+                (camera_id, camera_name, car_count, motorcycle_count, bus_count, truck_count, last_updated)
             VALUES 
-                (%s, %s, %s, %s, %s, %s, %s, NOW())
+                (%s, %s, %s, %s, %s, %s, NOW())
             ON CONFLICT (camera_id) 
             DO UPDATE SET
                 camera_name = EXCLUDED.camera_name,
-                bicycle_count = EXCLUDED.bicycle_count,
                 car_count = EXCLUDED.car_count,
                 motorcycle_count = EXCLUDED.motorcycle_count,
                 bus_count = EXCLUDED.bus_count,
@@ -140,7 +124,6 @@ def save_counts(camera_id: str, camera_name: str, counts: Dict[str, int]) -> boo
         """, (
             camera_id,
             camera_name,
-            counts.get("bicycle", 0),
             counts.get("car", 0),
             counts.get("motorcycle", 0),
             counts.get("bus", 0),
@@ -176,7 +159,7 @@ def load_counts(camera_id: str) -> Optional[Dict[str, int]]:
         cursor = conn.cursor()
         
         cursor.execute("""
-            SELECT bicycle_count, car_count, motorcycle_count, bus_count, truck_count
+            SELECT car_count, motorcycle_count, bus_count, truck_count
             FROM detection_counts
             WHERE camera_id = %s;
         """, (camera_id,))
@@ -186,11 +169,10 @@ def load_counts(camera_id: str) -> Optional[Dict[str, int]]:
         
         if row:
             counts = {
-                "bicycle": row[0],
-                "car": row[1],
-                "motorcycle": row[2],
-                "bus": row[3],
-                "truck": row[4],
+                "car": row[0],
+                "motorcycle": row[1],
+                "bus": row[2],
+                "truck": row[3],
             }
             logger.info(f"Loaded counts for camera {camera_id}: {counts}")
             return counts
@@ -218,7 +200,7 @@ def get_all_counts() -> list:
         cursor = conn.cursor()
         
         cursor.execute("""
-            SELECT camera_id, camera_name, bicycle_count, car_count, motorcycle_count, 
+            SELECT camera_id, camera_name, car_count, motorcycle_count, 
                    bus_count, truck_count, last_updated
             FROM detection_counts
             ORDER BY last_updated DESC;
@@ -233,14 +215,13 @@ def get_all_counts() -> list:
                 "camera_id": row[0],
                 "camera_name": row[1],
                 "counts": {
-                    "bicycle": row[2],
-                    "car": row[3],
-                    "motorcycle": row[4],
-                    "bus": row[5],
-                    "truck": row[6],
+                    "car": row[2],
+                    "motorcycle": row[3],
+                    "bus": row[4],
+                    "truck": row[5],
                 },
-                "total": sum(row[2:7]),
-                "last_updated": row[8].isoformat() if row[8] else None,
+                "total": sum(row[2:6]),
+                "last_updated": row[6].isoformat() if row[6] else None,
             })
         
         return results

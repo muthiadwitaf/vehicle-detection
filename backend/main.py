@@ -47,7 +47,7 @@ app.add_middleware(
 stream_mgr = StreamManager()
 tracker = None  # Will be initialized when stream starts
 stats = {
-    "counts": {"bicycle": 0, "car": 0, "motorcycle": 0, "bus": 0, "truck": 0},
+    "counts": {"car": 0, "motorcycle": 0, "bus": 0, "truck": 0},
     "seen_ids": set(),
     "timeline": [],
     "frame_count": 0,
